@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.app.Activity;
 
-import com.brentvatne.fullscreen;
+import com.brentvatne.fullscreen.VideoActivity;
 
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;

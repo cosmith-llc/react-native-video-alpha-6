@@ -23,6 +23,8 @@ import android.view.View.OnSystemUiVisibilityChangeListener;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.brentvatne.react.R;
+
 public class VideoActivity extends AppCompatActivity {
     private String videoPath;
     private int videoPosition, clickCount = 0;
@@ -104,7 +106,7 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void hide() {
-        Button button2 = (Button) findViewById(R.id.closeBtn);
+        Button button2 = (Button) findViewById(com.brentvatne.react.R.id.closeBtn);
         button2.setVisibility(View.INVISIBLE);
     }
 
@@ -124,7 +126,7 @@ public class VideoActivity extends AppCompatActivity {
             iv_play.setImageResource(R.mipmap.k_play);
         }*/
 
-        Button button2 = (Button) findViewById(R.id.closeBtn);
+        Button button2 = (Button) findViewById(com.brentvatne.react.R.id.closeBtn);
         button2.setVisibility(View.VISIBLE);
 
         mHandler.sendEmptyMessage(SHOW_PROGRESS);
@@ -188,10 +190,13 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-        switch(v.getId()) {
-            case R.id.closeBtn:
+        /*switch(v.getId()) {
+            case com.brentvatne.react.R.id.close_btn:
                 finishProgress();
                 break;
+        }*/
+        if (v.getId() == com.brentvatne.react.R.id.closeBtn) {
+            finishProgress();
         }
     }
 }
