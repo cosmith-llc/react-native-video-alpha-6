@@ -70,10 +70,10 @@ public class VideoActivity extends AppCompatActivity {
         }
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        setContentView(R.layout.player_fullscreen);
+        setContentView(com.brentvatne.react.R.layout.player_fullscreen);
         Intent i = getIntent();
         if(i != null){
-            myVideoView = (VideoView) findViewById(R.id.videoView);
+            myVideoView = (VideoView) findViewById(com.brentvatne.react.R.id.videoView);
             extras = i.getExtras();
             videoPath = extras.getString("VIDEO_URL");
             videoPosition = extras.getInt("VIDEO_POSITION");

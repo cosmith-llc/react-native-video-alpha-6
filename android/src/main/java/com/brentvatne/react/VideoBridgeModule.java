@@ -18,7 +18,7 @@ import com.facebook.react.bridge.Promise;
 
 //        Log.i("BridgeModule", "Go fullscreen");
 
-public class BridgeModule extends ReactContextBaseJavaModule {
+public class VideoBridgeModule extends ReactContextBaseJavaModule {
     static final int VIDEO_PROGRESS_REQUEST = 13214;  // The request code
     private static final String E_FAILED_TO_SHOW_VIDEO = "E_FAILED_TO_SHOW_VIDEO";
 
@@ -43,7 +43,7 @@ public class BridgeModule extends ReactContextBaseJavaModule {
         }
     };
 
-    public BridgeModule(ReactApplicationContext reactContext) {
+    public VideoBridgeModule(ReactApplicationContext reactContext) {
         super(reactContext);
 
         // Add the listener for `onActivityResult`
@@ -52,7 +52,7 @@ public class BridgeModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "BridgeModule";
+        return "VideoBridgeModule";
     }
 
     @ReactMethod

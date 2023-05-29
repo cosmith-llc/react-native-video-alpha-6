@@ -31,7 +31,7 @@ public class ReactVideoPackage implements ReactPackage {
         );*/
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new VideoDecoderPropertiesModule(reactContext));
-        modules.add(new BridgeModule(reactContext));
+        modules.add(new VideoBridgeModule(reactContext));
         return modules;
     }
 
