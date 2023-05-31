@@ -1106,15 +1106,26 @@ class RCTVideo: UIView, RCTVideoPlayerViewControllerDelegate, RCTPlayerObserverH
                     self.onVideoFullscreenPlayerDidPresent?(["target": self.reactTag as Any])
                 }
             } else {
-                NSLog("not fullscreen #2")
+                NSLog("not fullscreen")
 
                 if (_fullscreenUncontrolPlayerPresented) {
                     _fullscreenUncontrolPlayerPresented = false;
-
-                    self.onVideoFullscreenPlayerWillDismiss?(["target": self.reactTag as Any])
-                    self.onVideoFullscreenPlayerDidDismiss?(["target": self.reactTag as Any])
                     
-                    self.setControls(false)
+                    self.onVideoFullscreenPlayerWillDismiss?(["target": self.reactTag as Any])
+
+                    self.setControls(false);
+
+                    if (self._player!.rate > 0.0 ) {
+                        NSLog("not fullscreen and playing")
+                        self.setPaused(false)
+                        self.onVideoFullscreenPlayerDidDismiss?((["isPlaying": NSNumber(value: 1),
+                                                                  "target": reactTag as Any]))
+                    } else {
+                        NSLog("not fullscreen and paused")
+                        self.setPaused(true)
+                        self.onVideoFullscreenPlayerDidDismiss?((["isPlaying": NSNumber(value: 0),
+                                                                  "target": reactTag as Any]))
+                    }
                 }
             }
 
